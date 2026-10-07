@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="数据工程与产品开发作品集：多源 ETL、分层数仓、经营分析平台与 DB Sonde。">
+  <meta name="theme-color" content="#f6f7f5">
+  <title>个人作品 · 数据工程与应用开发</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c2927'/%3E%3Cpath d='M8 9h7v5H8zm9 9h7v5h-7z' fill='%23cef478'/%3E%3Cpath d='M15 11h6v7M11 14v6h6' fill='none' stroke='%23cef478'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=e6ba15549348">
+  <script src="main.js?v=dd41901317aa" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳转到正文</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="site-header">
+  <a class="wordmark" href="#top" aria-label="返回首页"><span class="brand-icon" aria-hidden="true">d<span>p</span></span><span>个人作品<span class="wordmark-sub">PORTFOLIO / 2026</span></span></a>
+  <nav aria-label="主导航"><a href="#work">项目 <span>03</span></a><a href="#capabilities">技术栈</a><a href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub <span class="nav-arrow">↗</span></a></nav>
+</header>
+<main id="main">
+  <section class="hero page-width" id="top">
+    <div class="hero-copy">
+      <p class="eyebrow enter">DATA ENGINEERING / SOFTWARE DEVELOPMENT</p>
+      <h1 class="enter delay-1">数据工程，<br>应用开发<span class="accent-period">。</span></h1>
+      <p class="hero-intro enter delay-2">ETL 与 MySQL 数仓、经营报表、DB Sonde。</p>
+      <div class="hero-actions enter delay-3"><a class="button primary" href="#work">项目作品 <span>↘</span></a><a class="text-link" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></div>
+    </div>
+    <div class="hero-system enter delay-2">
+      <div class="system-caption"><span class="mono">DATA ARCHITECTURE</span><span>数仓架构</span></div>
+      <div class="system-map" aria-label="业务数据经采集进入 ODS、DWD、DWS、ADS 数仓，由公共维度统一门店映射，供经营报表、分析看板与数据工具使用">
+        <div class="source-row"><span>交易订单</span><span>会员行为</span><span>供应链</span><span>评价稽核</span></div>
+        <div class="ingest-line"><span class="mono">EXTRACT · TRANSFORM · LOAD</span><span class="flow-particle"></span></div>
+        <div class="warehouse-stack">
+          <div class="warehouse-row"><span class="layer-number">01</span><strong>ODS</strong><span>保留原始事实</span><span class="layer-code">SOURCE</span></div>
+          <div class="warehouse-row"><span class="layer-number">02</span><strong>DWD</strong><span>统一明细口径</span><span class="layer-code">DETAIL</span></div>
+          <div class="warehouse-row"><span class="layer-number">03</span><strong>DWS</strong><span>沉淀主题汇总</span><span class="layer-code">SERVICE</span></div>
+          <div class="warehouse-row row-active"><span class="layer-number">04</span><strong>ADS</strong><span>面向业务应用</span><span class="layer-code">APPLICATION</span></div>
+        </div>
+        <div class="dimension-rail"><span class="mono">DIM</span><span>统一门店 · 渠道 · 商品 · 会员</span></div>
+        <div class="output-line" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="system-outputs"><span>经营报表</span><span>分析看板</span><span>数据工具</span></div>
+      </div>
+      <div class="system-bottom"><span class="crosshair">+</span><span class="mono">ODS / DWD / DWS / ADS + DIM</span><span class="crosshair">+</span></div>
+    </div>
+  </section>
+
+  <div class="index-strip page-width enter delay-3"><span class="index-label mono">INDEX</span><a href="#warehouse"><span class="mono">01</span> ETL 与数仓</a><a href="#reporting"><span class="mono">02</span> 经营报表</a><a href="#sonde"><span class="mono">03</span> DB Sonde</a><span class="scroll-note mono">2026 / SELECTED WORK</span></div>
+
+  <section class="work-section page-width" id="work">
+    <div class="section-heading reveal"><div><p class="eyebrow">SELECTED WORK</p><h2>项目作品<span class="section-count"> / 03</span></h2></div></div>
+
+    <article class="project warehouse-project reveal" id="warehouse">
+      <div class="project-info"><div class="project-overline"><span class="mono">01 / DATA FOUNDATION</span><span class="project-type">数据工程</span></div><h3>ETL 与 MySQL 数仓</h3><p class="project-description">独立支撑 <strong class="inline-number">500+</strong> 家门店的数据工作。</p><div class="tags"><span>MySQL</span><span>DataX</span><span>Python</span><span>DolphinScheduler</span></div><dl class="project-facts"><div><dt>建模</dt><dd>ODS → DWD → DWS → ADS + DIM</dd></div><div><dt>治理</dt><dd>统一门店映射、渠道对账、定向回补</dd></div><div><dt>服务</dt><dd>门店经营、会员行为、供应链与评价分析</dd></div></dl><div class="project-note dataset-note"><span>数据集整合</span><span class="number-change"><span class="number-before">31</span><span class="change-arrow" aria-hidden="true">→</span><strong>8</strong><span class="number-unit">个</span></span></div></div>
+      <div class="warehouse-visual project-visual">
+        <div class="visual-topline"><span class="mono">WAREHOUSE / ARCHITECTURE</span><span class="visual-note source-count"><strong>10+</strong> 数据源</span></div>
+        <div class="domain-network">
+          <div class="network-sources"><span>收银 / 团购</span><span>外卖 / 评价</span><span>会员 / 储值</span><span>供应链 / 稽核</span></div>
+          <svg class="network-lines" viewBox="0 0 440 95" preserveAspectRatio="none" aria-hidden="true"><path d="M45 0V25Q45 40 65 40H200Q220 40 220 60V95M162 0V40M278 0V40M395 0V25Q395 40 375 40H220"/><path class="moving-line" d="M45 0V25Q45 40 65 40H200Q220 40 220 60V95"/></svg>
+          <div class="model-core"><span class="model-eyebrow mono">UNIFIED DATA MODEL</span><strong>统一数据模型</strong><div><span>门店</span><i>×</i><span>日期</span><i>×</i><span>渠道</span></div></div>
+          <div class="model-connector" aria-hidden="true"></div>
+          <div class="data-marts"><div><span class="mono">SALES</span><strong>经营交易</strong></div><div><span class="mono">MEMBER</span><strong>会员行为</strong></div><div><span class="mono">SUPPLY</span><strong>供应链</strong></div></div>
+        </div>
+        <div class="visual-footer"><span>多源接入</span><span>统一维度</span><span>分层加工</span><span>业务复用</span></div>
+      </div>
+    </article>
+
+    <article class="report-showcase reveal" id="reporting">
+      <div class="showcase-heading"><div><p class="eyebrow">02 / BUSINESS INTELLIGENCE</p><h3>经营报表</h3><p class="concise-description"><strong class="inline-number">96</strong> 项经营指标</p></div><div class="report-heading-detail"><div class="response-time"><span class="response-label">首屏加载</span><span class="number-change"><span class="number-before">79.7<small>秒</small></span><span class="change-arrow" aria-hidden="true">→</span><strong>3.2<small>秒</small></strong></span></div><div class="tags"><span>Vue 3</span><span>FastAPI</span><span>ECharts</span><span>Excel</span></div></div></div>
+      <div class="report-tabs" role="tablist" aria-label="交互报表"><button id="tab-levels" role="tab" aria-selected="true" aria-controls="report-panel" data-report="levels">三级报表</button><button id="tab-performance" role="tab" aria-selected="false" aria-controls="report-panel" tabindex="-1" data-report="performance">战区经理绩效</button><button id="tab-monthly" role="tab" aria-selected="false" aria-controls="report-panel" tabindex="-1" data-report="monthly">总经理月会</button></div>
+      <div class="report-demo-shell" id="report-panel" role="tabpanel" aria-labelledby="tab-levels">
+        <div class="report-demo-toolbar"><span id="demo-title">三级报表</span><div><span class="demo-data-label">演示数据</span><button id="report-expand" type="button" aria-expanded="false" aria-controls="report-frames">展开 ↗</button></div></div>
+        <div id="report-frames" class="report-frames">
+          <iframe id="frame-levels" title="三级报表交互演示" data-view="levels" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer"></iframe>
+          <iframe id="frame-performance" title="战区经理绩效交互演示" data-view="performance" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer" hidden></iframe>
+          <iframe id="frame-monthly" title="总经理月会交互演示" data-view="monthly" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer" hidden></iframe>
+        </div>
+      </div>
+      <div class="screenshot-caption"><p class="component-time">单组件加载 <span>70 秒</span><span class="change-arrow" aria-hidden="true">→</span><strong>1 秒以内</strong></p><span>名称与数据均为虚构</span></div>
+    </article>
+
+    <article class="sonde-project reveal" id="sonde">
+      <div class="sonde-heading"><div><p class="eyebrow">03 / OPEN SOURCE</p><h3><img src="assets/sonde.png" width="44" height="44" alt="">DB Sonde</h3></div><a class="github-button" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.22c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.27 3.38.98.11-.75.41-1.27.74-1.56-2.58-.29-5.29-1.29-5.29-5.73 0-1.27.45-2.31 1.2-3.13-.12-.29-.52-1.48.11-3.09 0 0 .98-.32 3.16 1.2a10.94 10.94 0 0 1 5.76 0c2.18-1.52 3.16-1.2 3.16-1.2.63 1.61.23 2.8.11 3.09.75.82 1.2 1.86 1.2 3.13 0 4.45-2.72 5.43-5.31 5.72.42.36.79 1.06.79 2.14v3.26c0 .31.21.67.8.55A11.5 11.5 0 0 0 12 .7Z"/></svg>GitHub <span>↗</span></a></div>
+      <div class="sonde-grid"><div class="sonde-copy"><p class="sonde-subtitle">桌面数据库客户端</p><ul class="feature-list"><li>SQL 编辑与数据管理</li><li>指标、看板与数据血缘<span class="lineage-count"><strong>939</strong> 个节点<span class="lineage-divider">/</span><strong>996</strong> 条链路</span></li><li>AI 分析与 Python 工作台</li><li>ETL 与 DolphinScheduler 接入</li></ul><div class="tags dark-tags"><span>Tauri 2</span><span>Rust</span><span>React</span><span>TypeScript</span></div><p class="engine-list">MySQL / PostgreSQL / SQLite<br>Oracle / ClickHouse</p></div><div class="sonde-screenshot"><button class="image-expand" type="button" data-lightbox="assets/sonde-workspace.png" data-caption="DB Sonde · SQL 工作区 / 内置演示库" aria-label="放大 Sonde 工作区截图"><img src="assets/sonde-workspace.png" width="2250" height="1350" alt="DB Sonde 实际 SQL 工作区，内置 SQLite 演示库"><span class="expand-hint">查看大图 ↗</span></button><p>原界面 · 内置演示库</p></div></div>
+    </article>
+  </section>
+
+  <section class="stack-section page-width reveal" id="capabilities"><p class="eyebrow">TECH STACK</p><div class="stack-row"><h2>技术栈</h2><div class="stack-groups"><div><span>数据</span><p>SQL · MySQL · DataX · Python · DolphinScheduler</p></div><div><span>应用</span><p>Vue · React · TypeScript · FastAPI · Rust · Tauri</p></div></div></div></section>
+</main>
+<footer class="site-footer page-width"><span class="footer-mark">PORTFOLIO / 2026</span><button id="motion-toggle" type="button" aria-pressed="false">动效：开启</button><a href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">顶部 ↑</a></footer>
+<dialog id="image-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><p id="dialog-caption"></p><button type="button" id="close-dialog" aria-label="关闭大图">关闭 ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div></dialog>
+</body>
+</html>
