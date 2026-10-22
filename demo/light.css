@@ -1,0 +1,40 @@
+/* Presentation override only. Original report code, controls and fixtures are unchanged. */
+:root{color-scheme:light;--bg-base:#f7f8fa;--bg-elevated:#fff;--bg-panel:#fff;--bg-panel-solid:#fff;--bg-panel-2:#f1f4f8;--bg-soft:#edf1f7;--bg-inset:#f6f7fa;--overlay:#fff;--border:#dfe5ed;--border-strong:#c4cfdd;--line:#e7ebf0;--text-primary:#263449;--text-secondary:#5f6e83;--text-muted:#8994a4;--brand:#5276c9;--brand-strong:#4168b7;--brand-deep:#355bb0;--brand-soft:#edf2fc;--brand-line:#bbcbee;--green:#238963;--green-soft:#edf8f2;--red:#c85668;--red-soft:#fbf0f2;--yellow:#af8227;--yellow-soft:#fdf7e9;--shadow-md:0 12px 34px #52657e1a;--shadow-lg:0 20px 48px #52657e25;--el-color-primary-light-3:#7a98d8;--el-color-primary-light-5:#a3b8e5;--el-color-primary-light-7:#c5d2ee;--el-color-primary-light-8:#dbe4f6;--el-color-primary-light-9:#eff3fc;--el-color-primary-dark-2:#4265af;--el-fill-color:#f1f4f8;--el-fill-color-dark:#e5ebf4;--el-border-color:#dbe2eb;--el-border-color-light:#e4e9ef;--el-border-color-lighter:#edf0f5;--el-text-color-regular:#53637a;--el-text-color-disabled:#b2bbc8;--el-mask-color:#182b4659}
+html,body,#app{background:#f7f8fa!important;color:#263449!important;color-scheme:light!important}
+.zsp-three-level-report,.performance-report,.qige-report{background:#f8f9fb!important;color:#263449!important}
+.report-hero h2,.performance-hero h2,.block-heading h3,.table-heading h3,.kpi-grid strong,.summary-card strong{color:#24354c!important}
+.report-hero .eyebrow,.performance-hero .eyebrow{color:#5576b9!important}
+.report-hero p,.block-heading p,.trend-item>span,.trend-item>small{color:#8592a5!important}
+.kpi-grid article,.panel-block,.summary-card,.performance-table-panel{background:#fff!important;border-color:#dfe6ef!important;box-shadow:none!important}
+.summary-card:after{display:none!important}.summary-card span,.summary-card small,.kpi-grid span,.kpi-grid small{color:#8391a4!important}
+.status-line{background:#f0f4f9!important;border-color:#e0e7ef!important}.status-line span{color:#6f839e!important;background:#eef3fa!important;border-color:#d5dfed!important}
+.level-tabs button,.rules-trigger{background:#fff!important;color:#61738b!important;border-color:#dbe3ec!important;box-shadow:none!important}
+.level-tabs button:hover,.level-tabs button.active{background:#fbf0f2!important;color:#a04457!important;border-color:#db9aa7!important}
+.level-tabs button.active span{color:#bd7785!important}.rules-trigger:hover{background:#edf3ff!important;color:#4268b0!important;border-color:#a1b9e6!important}
+.period-segmented button.active{background:#bc596d!important;box-shadow:none!important}
+.report-filters,.report-meta{background:#fff!important;border-color:#dfe6ee!important}.meta-legend .scope-rule{color:#a85666!important;background:#fcf0f3!important;border-color:#eac6ce!important}
+.report-table-shell{background:#fff!important;border-color:#dfe6ee!important;scrollbar-color:#b5c2d3 #f1f4f8!important}
+.report-table th,.performance-report thead th{background:#edf2f9!important;color:#50627c!important;border-color:#dce4ee!important}
+.report-table th.sticky,.performance-report th.sticky{background:#e7edf5!important;color:#40526d!important}
+.report-table td,.performance-report td{background:#fff!important;color:#4a5c76!important;border-color:#e5eaf1!important;background-image:none!important}
+.report-table td.sticky,.performance-report td.sticky{background:#f9fafc!important}
+.report-table tbody tr:nth-child(even) td,.performance-report tbody tr:nth-child(even) td{background:#f6f8fb!important}
+.report-table tbody tr:nth-child(even) td.sticky,.performance-report tbody tr:nth-child(even) td.sticky{background:#f0f4f9!important}
+.report-table tbody tr:hover td,.performance-report tbody tr:hover td{background:#ebf1fc!important}
+.report-table tbody tr.total-row td{background:#f8edf0!important;color:#754554!important;border-top-color:#e4c1ca!important}
+.report-table tbody tr.total-row td.sticky{background:#f1e2e7!important}
+.report-table tbody tr.pk-top-three td{background:#fff9ec!important;color:#7a633d!important}.report-table tbody tr.pk-top-three td.sticky{background:#f8efda!important}
+.report-table td.pending{color:#a7b0bc!important}.performance-report td.score{background:#fff8e7!important;color:#a47b24!important}
+.comparison-up,.report-table .comparison-up,.performance-report td.positive{color:#2d9670!important}.comparison-down,.report-table .comparison-down,.performance-report td.negative{color:#c26878!important}
+.qige-report tbody th,.qige-report td{color:#536780!important;border-color:#e4eaf1!important}.qige-report thead th{color:#8190a5!important;border-color:#e4eaf1!important}
+.qige-report .trend-item:hover{background:#edf3fb!important}.trend-item strong{color:#5b7090!important}.bar-track{background:#e7eef9!important}.rate-pill{background:#edf8f3!important;color:#36896e!important}
+.maintenance-grid>div{background:#f3f6fa!important}.maintenance-grid strong{color:#546a87!important}.maintenance-grid p{color:#7f8fa5!important}.maintenance-grid small{color:#99a5b5!important}
+.el-drawer,.zsp-rules-drawer.el-drawer,.performance-rules-drawer.el-drawer{background:#fff!important;color:#50627b!important}
+.el-drawer__header,.el-drawer__close-btn,.rules-title h2,.drawer-heading h2,.rule-section h3{color:#2f435e!important}
+.rules-body{color:#50627b!important}.rules-title span{color:#b56576!important}.rules-summary div,.scope-cards article,.time-rules,.metric-rule,.pk-scope,.pk-total-rules,.exclusion-groups details,.pk-row,.rule-list article{background:#f7f9fc!important;border-color:#e0e6ee!important}
+.rules-summary strong,.scope-cards h4,.time-rules h4,.family-title h4,.pk-total-rules h4,.rule-copy h3,.exclusion-groups summary,.pk-row strong{color:#435a78!important}
+.scope-cards p,.metric-rule p,.pk-scope p,.pk-row p,.time-rules li,.pk-total-rules li,.store-list li,.pk-row .direction{color:#71839b!important}
+.pk-row b{color:#536d90!important}.pk-head{background:#eaf0f8!important;color:#70849f!important}.pk-scope strong{color:#a46373!important}.pk-row .cap{color:#ac8434!important}
+.metric-names span{color:#597cb5!important;background:#edf3ff!important;border-color:#c4d4ee!important}.formula{color:#557194!important;background:#eaf1fb!important}.rule-section>header>span{color:#b26879!important;background:#fbf0f3!important;border-color:#e6bcc6!important}
+.el-dialog__header,.el-drawer__header{color:#405570!important}.el-overlay{background:#16284244!important}
+button:focus-visible{outline:2px solid #537bd3!important}

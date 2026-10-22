@@ -1,102 +1,25 @@
 (() => {
   'use strict';
-  const root = document.documentElement;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const toggle = document.getElementById('motion-toggle');
-  let motionOff = reduced.matches;
-  const applyMotion = () => {
-    root.classList.toggle('motion-off', motionOff);
-    toggle.setAttribute('aria-pressed', String(motionOff));
-    toggle.textContent = `动效：${motionOff ? '关闭' : '开启'}`;
-  };
-  applyMotion();
-  toggle.addEventListener('click', () => { motionOff = !motionOff; applyMotion(); });
-  reduced.addEventListener('change', event => { motionOff = event.matches; applyMotion(); });
+  const $=(s)=>document.querySelector(s);const $$=(s)=>[...document.querySelectorAll(s)];
+  let paused=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const motionToggle=$('#motion-toggle');
+  function applyMotion(){document.documentElement.classList.toggle('motion-off',paused);motionToggle.textContent=paused?'开启动效':'暂停动效';motionToggle.setAttribute('aria-pressed',String(paused));document.dispatchEvent(new CustomEvent('portfolio:motion',{detail:{paused}}));$('#lineage-frame').contentWindow?.postMessage({type:'portfolio:motion',paused},location.origin)}
+  applyMotion();motionToggle.addEventListener('click',()=>{paused=!paused;applyMotion()});matchMedia('(prefers-reduced-motion:reduce)').addEventListener('change',e=>{paused=e.matches;applyMotion()});$('#lineage-frame').addEventListener('load',applyMotion);
+  let progressFrame;addEventListener('scroll',()=>{if(progressFrame)return;progressFrame=requestAnimationFrame(()=>{const range=document.documentElement.scrollHeight-innerHeight;$('.reading-progress').style.transform=`scaleX(${range>0?scrollY/range:0})`;progressFrame=null})},{passive:true});
+  const canvas=$('.canvas-shell'),expand=$('#canvas-expand');let priorFocus=null;
+  function setExpanded(expanded){if(expanded)priorFocus=document.activeElement;canvas.classList.toggle('is-fullscreen',expanded);document.body.classList.toggle('canvas-open',expanded);expand.textContent=expanded?'关闭全屏 ×':'全屏查看 ↗';expand.setAttribute('aria-expanded',String(expanded));if(expanded){canvas.setAttribute('role','dialog');canvas.setAttribute('aria-label','堂食收入链路全屏');canvas.setAttribute('aria-modal','true');$$('body>header,body>footer,main>section:not(.lineage-section),main>.index-strip').forEach(el=>el.inert=true);expand.focus()}else{canvas.removeAttribute('role');canvas.removeAttribute('aria-modal');$$('[inert]').forEach(el=>el.inert=false);priorFocus?.focus()}}
+  expand.addEventListener('click',()=>setExpanded(!canvas.classList.contains('is-fullscreen')));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&canvas.classList.contains('is-fullscreen'))setExpanded(false)});
+  addEventListener('message',e=>{if(e.origin===location.origin&&e.source===$('#lineage-frame').contentWindow&&e.data?.type==='canvas:escape')setExpanded(false)});
+  const dialog=$('#image-dialog');$('#sonde-image-open').addEventListener('click',()=>{dialog.showModal();document.body.classList.add('no-scroll')});$('#image-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>document.body.classList.remove('no-scroll'));dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 
-  if ('IntersectionObserver' in window) {
-    root.classList.add('motion-ready');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.07, rootMargin: '0px 0px 10px 0px' });
-    document.querySelectorAll('.reveal').forEach(section => observer.observe(section));
-  }
-  const progress = document.querySelector('.reading-progress');
-  let frame = 0;
-  const updateProgress = () => {
-    const range = document.documentElement.scrollHeight - innerHeight;
-    progress.style.transform = `scaleX(${range > 0 ? Math.min(1, scrollY / range) : 0})`;
-    frame = 0;
-  };
-  addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(updateProgress); }, { passive: true });
-  addEventListener('resize', updateProgress);
-  updateProgress();
-
-  const reports = {
-    levels: {name:'三级报表'},
-    performance: {name:'战区经理绩效'},
-    monthly: {name:'总经理月会'}
-  };
-  const tabs = Array.from(document.querySelectorAll('[data-report]'));
-  const panel = document.getElementById('report-panel');
-  const frames = Array.from(document.querySelectorAll('[data-view]'));
-  function selectReport(tab) {
-    const key = tab.dataset.report;
-    const report = reports[key];
-    tabs.forEach(item => {
-      const selected = item === tab;
-      item.setAttribute('aria-selected', String(selected));
-      item.tabIndex = selected ? 0 : -1;
-    });
-    document.getElementById('demo-title').textContent = report.name;
-    panel.setAttribute('aria-labelledby', tab.id);
-    frames.forEach(frame => {
-      frame.hidden = frame.dataset.view !== key;
-      if (!frame.hidden && !frame.getAttribute('src')) frame.src = `demo/index.html?view=${key}&v=interactive-1`;
-    });
-  }
-  const expandReport = document.getElementById('report-expand');
-  function setExpanded(expanded) {
-    panel.classList.toggle('is-expanded', expanded);
-    expandReport.setAttribute('aria-expanded', String(expanded));
-    expandReport.textContent = expanded ? '收起 ×' : '展开 ↗';
-    document.body.classList.toggle('report-expanded', expanded);
-    if (!expanded) expandReport.focus({preventScroll:true});
-  }
-  expandReport.addEventListener('click', () => setExpanded(!panel.classList.contains('is-expanded')));
-  addEventListener('keydown', event => { if (event.key === 'Escape' && panel.classList.contains('is-expanded')) setExpanded(false); });
-  addEventListener('message', event => {
-    if (event.origin === location.origin && frames.some(frame => frame.contentWindow === event.source) && event.data === 'demo:escape') setExpanded(false);
-  });
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => selectReport(tab));
-    tab.addEventListener('keydown', event => {
-      let next;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = tabs.length - 1;
-      if (next === undefined) return;
-      event.preventDefault(); tabs[next].focus(); selectReport(tabs[next]);
-    });
-  });
-  const dialog = document.getElementById('image-dialog');
-  document.querySelectorAll('[data-lightbox]').forEach(button => {
-    button.addEventListener('click', () => {
-      const image = document.getElementById('dialog-image');
-      image.src = button.dataset.lightbox;
-      image.alt = button.dataset.caption;
-      document.getElementById('dialog-caption').textContent = button.dataset.caption;
-      dialog.showModal();
-      document.body.style.overflow = 'hidden';
-    });
-  });
-  document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => { document.body.style.overflow = ''; });
-  selectReport(tabs[0], false);
+  const reports={levels:'三级报表',performance:'战区经理绩效',monthly:'总经理月会'};
+  const reportTabs=$$('[data-report]'),frames=$$('[data-report-frame]'),reportPanel=$('#original-report-panel');
+  function selectReport(tab){reportTabs.forEach(t=>{const on=t===tab;t.setAttribute('aria-selected',String(on));t.tabIndex=on?0:-1});reportPanel.setAttribute('aria-labelledby',tab.id);$('#original-report-title').textContent=reports[tab.dataset.report];frames.forEach(f=>{f.hidden=f.dataset.reportFrame!==tab.dataset.report;if(!f.hidden&&!f.getAttribute('src'))f.src=`demo/index.html?view=${f.dataset.reportFrame}`})}
+  reportTabs.forEach((tab,i)=>{tab.addEventListener('click',()=>selectReport(tab));tab.addEventListener('keydown',e=>{let n;if(e.key==='ArrowRight')n=(i+1)%reportTabs.length;if(e.key==='ArrowLeft')n=(i-1+reportTabs.length)%reportTabs.length;if(e.key==='Home')n=0;if(e.key==='End')n=reportTabs.length-1;if(n!==undefined){e.preventDefault();reportTabs[n].focus();selectReport(reportTabs[n])}})});
+  const reportExpand=$('#report-expand');function expandReport(on){reportPanel.classList.toggle('expanded',on);document.body.classList.toggle('report-open',on);reportExpand.setAttribute('aria-expanded',String(on));reportExpand.textContent=on?'收起 ×':'展开报表 ↗';if(!on)reportExpand.focus({preventScroll:true})}
+  reportExpand.addEventListener('click',()=>expandReport(!reportPanel.classList.contains('expanded')));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&reportPanel.classList.contains('expanded'))expandReport(false)});
+  addEventListener('message',e=>{if(e.origin===location.origin&&frames.some(f=>f.contentWindow===e.source)&&e.data==='demo:escape')expandReport(false)});
+  selectReport(reportTabs[0]);
 })();

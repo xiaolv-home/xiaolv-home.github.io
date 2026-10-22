@@ -1,92 +1,93 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="数据工程与产品开发作品集：多源 ETL、分层数仓、经营分析平台与 DB Sonde。">
-  <meta name="theme-color" content="#f6f7f5">
-  <title>个人作品 · 数据工程与应用开发</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231c2927'/%3E%3Cpath d='M8 9h7v5H8zm9 9h7v5h-7z' fill='%23cef478'/%3E%3Cpath d='M15 11h6v7M11 14v6h6' fill='none' stroke='%23cef478'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css?v=e6ba15549348">
-  <script src="main.js?v=dd41901317aa" defer></script>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="吕健的个人简介。数仓、ETL、BI 重构，以及用 Claude Code 制作的个人工具 DB Sonde。">
+  <meta name="theme-color" content="#f5f4f0"><title>吕健简介</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css"><script src="main.js" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#main">跳转到正文</a>
-<div class="reading-progress" aria-hidden="true"></div>
-<header class="site-header">
-  <a class="wordmark" href="#top" aria-label="返回首页"><span class="brand-icon" aria-hidden="true">d<span>p</span></span><span>个人作品<span class="wordmark-sub">PORTFOLIO / 2026</span></span></a>
-  <nav aria-label="主导航"><a href="#work">项目 <span>03</span></a><a href="#capabilities">技术栈</a><a href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub <span class="nav-arrow">↗</span></a></nav>
+<a class="skip" href="#main">跳到正文</a><div class="reading-progress" aria-hidden="true"></div>
+<header class="header wrap">
+  <a class="brand" href="#top" aria-label="xiaolv 首页"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="m4 7 10-5 10 5-10 5Zm0 7 10 5 10-5M4 21l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>xiaolv<span class="brand-slash">/</span><span class="brand-caption">个人作品</span></a>
+  <nav aria-label="主导航"><a href="#work">项目</a><a href="#lineage">链路画布</a><a href="#about">关于</a><a class="nav-github" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></nav>
 </header>
 <main id="main">
-  <section class="hero page-width" id="top">
+  <section class="hero wrap" id="top">
     <div class="hero-copy">
-      <p class="eyebrow enter">DATA ENGINEERING / SOFTWARE DEVELOPMENT</p>
-      <h1 class="enter delay-1">数据工程，<br>应用开发<span class="accent-period">。</span></h1>
-      <p class="hero-intro enter delay-2">ETL 与 MySQL 数仓、经营报表、DB Sonde。</p>
-      <div class="hero-actions enter delay-3"><a class="button primary" href="#work">项目作品 <span>↘</span></a><a class="text-link" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></div>
+      <p class="eyebrow"><span class="live-dot"></span>你好，欢迎来看看。</p>
+      <h1>吕健简介</h1>
+      <p class="hero-intro">我平时主要做数仓、ETL 和 BI 的重构。用工具时，渐渐产生了自己的一些想法，于是闲时用 Claude Code 做了一款个人用的软件，也放在 GitHub 上了。这里会介绍一些我的工作和项目成果。</p>
+      <div class="hero-actions"><a class="button primary" href="#work">看看我做的项目 <span>↘</span></a><a class="text-link" href="resume.html" target="_blank">简历摘要 <span>↗</span></a></div>
+      <p class="hero-footnote">数据开发 · 经营报表 · DB Sonde</p>
     </div>
-    <div class="hero-system enter delay-2">
-      <div class="system-caption"><span class="mono">DATA ARCHITECTURE</span><span>数仓架构</span></div>
-      <div class="system-map" aria-label="业务数据经采集进入 ODS、DWD、DWS、ADS 数仓，由公共维度统一门店映射，供经营报表、分析看板与数据工具使用">
-        <div class="source-row"><span>交易订单</span><span>会员行为</span><span>供应链</span><span>评价稽核</span></div>
-        <div class="ingest-line"><span class="mono">EXTRACT · TRANSFORM · LOAD</span><span class="flow-particle"></span></div>
-        <div class="warehouse-stack">
-          <div class="warehouse-row"><span class="layer-number">01</span><strong>ODS</strong><span>保留原始事实</span><span class="layer-code">SOURCE</span></div>
-          <div class="warehouse-row"><span class="layer-number">02</span><strong>DWD</strong><span>统一明细口径</span><span class="layer-code">DETAIL</span></div>
-          <div class="warehouse-row"><span class="layer-number">03</span><strong>DWS</strong><span>沉淀主题汇总</span><span class="layer-code">SERVICE</span></div>
-          <div class="warehouse-row row-active"><span class="layer-number">04</span><strong>ADS</strong><span>面向业务应用</span><span class="layer-code">APPLICATION</span></div>
-        </div>
-        <div class="dimension-rail"><span class="mono">DIM</span><span>统一门店 · 渠道 · 商品 · 会员</span></div>
-        <div class="output-line" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div class="system-outputs"><span>经营报表</span><span>分析看板</span><span>数据工具</span></div>
+    <aside class="project-deck" aria-label="3D 项目展台">
+      <div class="deck-heading"><span>我的三个项目</span><span class="deck-badge">3D / <span id="deck-counter">01</span></span></div>
+      <div class="deck-stage" id="deck-stage" tabindex="0" role="group" aria-label="立体项目展台。左右拖动或使用左右方向键切换项目，按 Enter 查看选中的项目。">
+        <div class="deck-fallback" aria-hidden="true"><div>数仓与 ETL</div><div>业务报表</div><div>DB Sonde</div></div>
       </div>
-      <div class="system-bottom"><span class="crosshair">+</span><span class="mono">ODS / DWD / DWS / ADS + DIM</span><span class="crosshair">+</span></div>
-    </div>
+      <div class="deck-controls"><button type="button" id="deck-prev" aria-label="上一个项目">←</button><span>左右拖动 · 点击卡片切换</span><button type="button" id="deck-next" aria-label="下一个项目">→</button></div>
+      <div class="deck-tabs" role="tablist" aria-label="选择立体展台上的项目">
+        <button type="button" id="deck-tab-data" role="tab" aria-selected="true" aria-controls="deck-data">数仓与 ETL</button>
+        <button type="button" id="deck-tab-reports" role="tab" aria-selected="false" aria-controls="deck-reports" tabindex="-1">业务报表</button>
+        <button type="button" id="deck-tab-sonde" role="tab" aria-selected="false" aria-controls="deck-sonde" tabindex="-1">DB Sonde</button>
+      </div>
+      <div class="deck-panel" id="deck-data" role="tabpanel" aria-labelledby="deck-tab-data">
+        <p>接入业务数据，统一门店与计算规则，再交给报表使用。</p><a href="#lineage">打开堂食收入链路 <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="deck-panel" id="deck-reports" role="tabpanel" aria-labelledby="deck-tab-reports" hidden>
+        <p>三级报表、经营绩效和月会。筛选、规则说明和导出都可以试。</p><a href="#reporting">操作原版报表演示 <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="deck-panel" id="deck-sonde" role="tabpanel" aria-labelledby="deck-tab-sonde" hidden>
+        <p>用 Claude Code 给自己做的数据工具，边用边改，也放在了 GitHub。</p><a href="#sonde">看看 DB Sonde <span aria-hidden="true">↘</span></a>
+      </div>
+      <span class="sr-only" id="deck-live" aria-live="polite"></span>
+    </aside>
   </section>
+  <div class="index-strip wrap"><span class="mono">SELECTED WORK / 2026</span><a href="#warehouse"><b>01</b>数据工程</a><a href="#reporting"><b>02</b>经营分析</a><a href="#sonde"><b>03</b>DB Sonde</a><span class="index-end">工作里的项目，自己做的工具。</span></div>
 
-  <div class="index-strip page-width enter delay-3"><span class="index-label mono">INDEX</span><a href="#warehouse"><span class="mono">01</span> ETL 与数仓</a><a href="#reporting"><span class="mono">02</span> 经营报表</a><a href="#sonde"><span class="mono">03</span> DB Sonde</a><span class="scroll-note mono">2026 / SELECTED WORK</span></div>
-
-  <section class="work-section page-width" id="work">
-    <div class="section-heading reveal"><div><p class="eyebrow">SELECTED WORK</p><h2>项目作品<span class="section-count"> / 03</span></h2></div></div>
-
-    <article class="project warehouse-project reveal" id="warehouse">
-      <div class="project-info"><div class="project-overline"><span class="mono">01 / DATA FOUNDATION</span><span class="project-type">数据工程</span></div><h3>ETL 与 MySQL 数仓</h3><p class="project-description">独立支撑 <strong class="inline-number">500+</strong> 家门店的数据工作。</p><div class="tags"><span>MySQL</span><span>DataX</span><span>Python</span><span>DolphinScheduler</span></div><dl class="project-facts"><div><dt>建模</dt><dd>ODS → DWD → DWS → ADS + DIM</dd></div><div><dt>治理</dt><dd>统一门店映射、渠道对账、定向回补</dd></div><div><dt>服务</dt><dd>门店经营、会员行为、供应链与评价分析</dd></div></dl><div class="project-note dataset-note"><span>数据集整合</span><span class="number-change"><span class="number-before">31</span><span class="change-arrow" aria-hidden="true">→</span><strong>8</strong><span class="number-unit">个</span></span></div></div>
-      <div class="warehouse-visual project-visual">
-        <div class="visual-topline"><span class="mono">WAREHOUSE / ARCHITECTURE</span><span class="visual-note source-count"><strong>10+</strong> 数据源</span></div>
-        <div class="domain-network">
-          <div class="network-sources"><span>收银 / 团购</span><span>外卖 / 评价</span><span>会员 / 储值</span><span>供应链 / 稽核</span></div>
-          <svg class="network-lines" viewBox="0 0 440 95" preserveAspectRatio="none" aria-hidden="true"><path d="M45 0V25Q45 40 65 40H200Q220 40 220 60V95M162 0V40M278 0V40M395 0V25Q395 40 375 40H220"/><path class="moving-line" d="M45 0V25Q45 40 65 40H200Q220 40 220 60V95"/></svg>
-          <div class="model-core"><span class="model-eyebrow mono">UNIFIED DATA MODEL</span><strong>统一数据模型</strong><div><span>门店</span><i>×</i><span>日期</span><i>×</i><span>渠道</span></div></div>
-          <div class="model-connector" aria-hidden="true"></div>
-          <div class="data-marts"><div><span class="mono">SALES</span><strong>经营交易</strong></div><div><span class="mono">MEMBER</span><strong>会员行为</strong></div><div><span class="mono">SUPPLY</span><strong>供应链</strong></div></div>
-        </div>
-        <div class="visual-footer"><span>多源接入</span><span>统一维度</span><span>分层加工</span><span>业务复用</span></div>
+  <section class="work wrap section" id="work">
+    <div class="section-head"><p class="eyebrow">SELECTED PROJECTS</p><h2>最近在做的<br><span class="muted">几件事。</span></h2><p class="section-intro">有些是工作需要，<br>有些是自己想做。</p></div>
+    <article class="project" id="warehouse">
+      <div class="project-heading"><span class="project-number">01</span><div><p class="eyebrow">DATA ENGINEERING</p><h3>把不同系统的数据整理到一起</h3></div><span class="project-category">持续维护的业务系统</span></div>
+      <div class="project-body">
+        <div class="project-narrative"><p class="lead">同一家门店，在不同系统里，<br>往往有不同的编号和不同的账。</p><p>工作里接触到收银、团购、外卖、会员和供应链等数据。我负责把它们接进数仓，统一门店和计算规则，再提供给各类报表使用。</p><p>花时间最多的，往往是那些小细节：退款算在哪天，零元订单算不算一单，同一家店在两个系统里能不能对上。</p><div class="tech-list"><span>MySQL</span><span>DataX</span><span>Python</span><span>DolphinScheduler</span><span>Docker</span></div></div>
+        <div class="warehouse-details"><div class="warehouse-stack"><div><b>ODS</b><span>保留来源记录</span><small>原始事实与追溯</small></div><div><b>DWD</b><span>统一明细口径</span><small>映射 · 清洗 · 校验</small></div><div><b>DWS</b><span>按主题汇总</span><small>收入 · 会员 · 供应链</small></div><div><b>ADS</b><span>交给业务使用</span><small>日报 · 小时报 · 专题</small></div><div class="dim-row"><b>DIM</b><span>公共维度与属性历史</span><small>门店 · 成本 · 映射</small></div></div><div class="verified-stat"><strong>27</strong><div>已发布的调度工作流<span>涵盖采集、收入、商品、会员与供应链等主题</span></div><span class="mono">2026.10</span></div></div>
       </div>
-    </article>
-
-    <article class="report-showcase reveal" id="reporting">
-      <div class="showcase-heading"><div><p class="eyebrow">02 / BUSINESS INTELLIGENCE</p><h3>经营报表</h3><p class="concise-description"><strong class="inline-number">96</strong> 项经营指标</p></div><div class="report-heading-detail"><div class="response-time"><span class="response-label">首屏加载</span><span class="number-change"><span class="number-before">79.7<small>秒</small></span><span class="change-arrow" aria-hidden="true">→</span><strong>3.2<small>秒</small></strong></span></div><div class="tags"><span>Vue 3</span><span>FastAPI</span><span>ECharts</span><span>Excel</span></div></div></div>
-      <div class="report-tabs" role="tablist" aria-label="交互报表"><button id="tab-levels" role="tab" aria-selected="true" aria-controls="report-panel" data-report="levels">三级报表</button><button id="tab-performance" role="tab" aria-selected="false" aria-controls="report-panel" tabindex="-1" data-report="performance">战区经理绩效</button><button id="tab-monthly" role="tab" aria-selected="false" aria-controls="report-panel" tabindex="-1" data-report="monthly">总经理月会</button></div>
-      <div class="report-demo-shell" id="report-panel" role="tabpanel" aria-labelledby="tab-levels">
-        <div class="report-demo-toolbar"><span id="demo-title">三级报表</span><div><span class="demo-data-label">演示数据</span><button id="report-expand" type="button" aria-expanded="false" aria-controls="report-frames">展开 ↗</button></div></div>
-        <div id="report-frames" class="report-frames">
-          <iframe id="frame-levels" title="三级报表交互演示" data-view="levels" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer"></iframe>
-          <iframe id="frame-performance" title="战区经理绩效交互演示" data-view="performance" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer" hidden></iframe>
-          <iframe id="frame-monthly" title="总经理月会交互演示" data-view="monthly" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" referrerpolicy="no-referrer" hidden></iframe>
-        </div>
-      </div>
-      <div class="screenshot-caption"><p class="component-time">单组件加载 <span>70 秒</span><span class="change-arrow" aria-hidden="true">→</span><strong>1 秒以内</strong></p><span>名称与数据均为虚构</span></div>
-    </article>
-
-    <article class="sonde-project reveal" id="sonde">
-      <div class="sonde-heading"><div><p class="eyebrow">03 / OPEN SOURCE</p><h3><img src="assets/sonde.png" width="44" height="44" alt="">DB Sonde</h3></div><a class="github-button" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.22c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.29-1.7-1.29-1.7-1.06-.73.08-.72.08-.72 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.72 1.27 3.38.98.11-.75.41-1.27.74-1.56-2.58-.29-5.29-1.29-5.29-5.73 0-1.27.45-2.31 1.2-3.13-.12-.29-.52-1.48.11-3.09 0 0 .98-.32 3.16 1.2a10.94 10.94 0 0 1 5.76 0c2.18-1.52 3.16-1.2 3.16-1.2.63 1.61.23 2.8.11 3.09.75.82 1.2 1.86 1.2 3.13 0 4.45-2.72 5.43-5.31 5.72.42.36.79 1.06.79 2.14v3.26c0 .31.21.67.8.55A11.5 11.5 0 0 0 12 .7Z"/></svg>GitHub <span>↗</span></a></div>
-      <div class="sonde-grid"><div class="sonde-copy"><p class="sonde-subtitle">桌面数据库客户端</p><ul class="feature-list"><li>SQL 编辑与数据管理</li><li>指标、看板与数据血缘<span class="lineage-count"><strong>939</strong> 个节点<span class="lineage-divider">/</span><strong>996</strong> 条链路</span></li><li>AI 分析与 Python 工作台</li><li>ETL 与 DolphinScheduler 接入</li></ul><div class="tags dark-tags"><span>Tauri 2</span><span>Rust</span><span>React</span><span>TypeScript</span></div><p class="engine-list">MySQL / PostgreSQL / SQLite<br>Oracle / ClickHouse</p></div><div class="sonde-screenshot"><button class="image-expand" type="button" data-lightbox="assets/sonde-workspace.png" data-caption="DB Sonde · SQL 工作区 / 内置演示库" aria-label="放大 Sonde 工作区截图"><img src="assets/sonde-workspace.png" width="2250" height="1350" alt="DB Sonde 实际 SQL 工作区，内置 SQLite 演示库"><span class="expand-hint">查看大图 ↗</span></button><p>原界面 · 内置演示库</p></div></div>
+      <div class="engineering-notes"><div><span class="note-index">01</span><h4>数字得对得上</h4><p>把金额、单数和退款的规则分开梳理，查清楚差异从哪来，再确定报表应该怎么算。</p></div><div><span class="note-index">02</span><h4>出问题能找得到</h4><p>采集、加工和发布分开记录。哪一天、哪个环节出了问题，能从日志里看到，也能单独重跑。</p></div><div><span class="note-index">03</span><h4>修改时尽量少打扰</h4><p>只修有问题的日期、门店和渠道，留好备份，改完再核一遍，别把原本正确的数据带偏。</p></div></div>
     </article>
   </section>
 
-  <section class="stack-section page-width reveal" id="capabilities"><p class="eyebrow">TECH STACK</p><div class="stack-row"><h2>技术栈</h2><div class="stack-groups"><div><span>数据</span><p>SQL · MySQL · DataX · Python · DolphinScheduler</p></div><div><span>应用</span><p>Vue · React · TypeScript · FastAPI · Rust · Tauri</p></div></div></div></section>
+  <section class="lineage-section" id="lineage"><div class="wrap">
+    <div class="lineage-heading"><div><p class="eyebrow">FROM MY WORKSPACE</p><h2>一笔堂食收入，<br>是怎样进入日报的。</h2></div><div><p>这张图来自我在 DB Sonde 中整理的堂食链路。<br>保留原图的布局、分支和流向，重新制作了公开版说明。</p><span class="privacy-label">34 个节点 / 42 条连线 · 名称与注释已脱敏</span></div></div>
+    <div class="canvas-shell"><div class="canvas-toolbar"><span><i class="canvas-dot"></i>堂食收入链路</span><div><span class="desktop-only">拖动平移 · 缩放查看 · 点击节点读说明</span><button id="canvas-expand" type="button">全屏查看 ↗</button></div></div><iframe id="lineage-frame" src="lineage/index.html" title="堂食收入链路脱敏复刻，可缩放、拖动和查看节点注释" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads"></iframe></div>
+    <div class="canvas-caption"><span>实线表示已整理的流转关系；虚线保留未接入的位置。此图是人工整理的链路文档，不连接业务系统。</span><a href="lineage/index.html" target="_blank">单独打开画布 ↗</a></div>
+  </div></section>
+
+  <section class="wrap section report-section" id="reporting">
+    <article class="project">
+      <div class="project-heading"><span class="project-number">02</span><div><p class="eyebrow">BUSINESS APPLICATION</p><h3>工作里用的几张报表</h3></div><span class="project-category">Vue 3 + FastAPI</span></div>
+      <div class="report-description"><p class="lead">同一套数据，<br>不同岗位需要不同的看法。</p><div><p>这几张是围绕实际使用需求做的：从总部、区域看到门店，按日常经营、绩效和月会分别组织内容。筛选、规则说明和 Excel 导出也一起做了。</p><p>下面保留了原项目的操作方式，可以直接点着看看。</p></div></div>
+      <div class="original-report-tabs" role="tablist" aria-label="项目报表"><button id="tab-levels" role="tab" aria-selected="true" aria-controls="original-report-panel" data-report="levels">三级报表</button><button id="tab-performance" role="tab" aria-selected="false" aria-controls="original-report-panel" tabindex="-1" data-report="performance">战区经理绩效</button><button id="tab-monthly" role="tab" aria-selected="false" aria-controls="original-report-panel" tabindex="-1" data-report="monthly">总经理月会</button></div>
+      <div class="original-report-shell" id="original-report-panel" role="tabpanel" aria-labelledby="tab-levels"><div class="original-report-toolbar"><span id="original-report-title">三级报表</span><div><span>原项目交互 · 虚构演示数据</span><button id="report-expand" type="button" aria-expanded="false">展开报表 ↗</button></div></div><div class="original-report-frames"><iframe id="frame-levels" title="三级报表原项目交互演示" data-report-frame="levels" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads"></iframe><iframe id="frame-performance" title="战区经理绩效原项目交互演示" data-report-frame="performance" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" hidden></iframe><iframe id="frame-monthly" title="总经理月会原项目交互演示" data-report-frame="monthly" loading="lazy" sandbox="allow-scripts allow-same-origin allow-downloads" hidden></iframe></div></div><p class="original-report-caption">可以切换层级、筛选日期、查看规则，也可以导出试试。名称和数据都已替换为演示内容。</p>
+    </article>
+  </section>
+
+  <section class="sonde-section" id="sonde"><div class="wrap">
+    <div class="project-heading"><span class="project-number">03</span><div><p class="eyebrow">PERSONAL PROJECT / OPEN SOURCE</p><h3>DB Sonde</h3></div><a class="sonde-source" href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">查看源码 <span>↗</span></a></div>
+    <div class="sonde-intro"><h2>少切几个窗口，<br><span>把手上的事做完。</span></h2><div><p>写 SQL、跑 Python、查指标、搭看板、看监控，过去经常要换好几个工具。我把自己常用的功能放进了一个桌面工作台，边用边改。</p><p>核心仍然是数据库工作区。数据集、指标、看板和 AI 分析围绕它展开；不配置 AI，也能正常查库和工作。</p><div class="tech-list"><span>Tauri 2</span><span>Rust</span><span>React</span><span>TypeScript</span></div></div></div>
+    <button class="sonde-image" id="sonde-image-open" aria-label="放大 DB Sonde 工作区演示截图"><img src="assets/sonde-workspace.png" width="2250" height="1350" alt="DB Sonde SQL 工作区，使用内置 SQLite 演示库" loading="lazy"><span>SQL 工作区 / 内置演示库 <b>放大 ↗</b></span></button>
+    <div class="sonde-features"><div><span class="mono">01 / WORKSPACE</span><h4>查库与编辑</h4><p>写 SQL、筛结果、改数据，常用操作都放在一起。保存修改前会检查记录是否已变化，金额也要原样保留。</p></div><div><span class="mono">02 / DATA ASSETS</span><h4>数据集、指标与看板</h4><p>把常用查询整理成数据集和指标，再拿来做看板。链路画布可以导出成网页、图片或视频，方便给别人看。</p></div><div><span class="mono">03 / ANALYSIS</span><h4>有依据的 AI 分析</h4><p>让 AI 帮忙查数据、做分析，但结论要能回到查询结果。没查成功或校验没通过时，会把问题显示出来。</p></div></div>
+    <div class="sonde-bottom"><span>MySQL / PostgreSQL / SQLite / Oracle / ClickHouse</span><span>持续迭代 · Beta</span><a href="https://github.com/xiaolv-home/DB-Sonde/releases" target="_blank" rel="noopener noreferrer">版本与下载 ↗</a></div>
+  </div></section>
+
+  <section class="about wrap section" id="about"><div><p class="eyebrow">HOW I WORK</p><h2>一点关于<br><span class="muted">我的工作习惯。</span></h2><a class="text-link" href="resume.html" target="_blank">打开简历摘要 ↗</a></div><div class="about-body"><p class="about-lead">我做数据比较多，主业也是数据，对网络和运维也颇有了解。遇到问题，习惯先把来龙去脉弄清楚，再动手改。做自己的工具也是一样，先解决手上确实遇到的不方便。<span class="about-aside">本人比较依赖 AI，不太喜欢手写代码（或许是不太会，哈哈 🤭）。</span></p><div class="about-item"><span>01</span><div><h4>先弄明白，再动手</h4><p>不只看报错，也顺着数据和代码找原因。文档写的和实际跑的不一样，就多核对一步。</p></div></div><div class="about-item"><span>02</span><div><h4>没弄清楚的，就继续查</h4><p>能确认的说清楚，还没确认的留着查。比起先给一个漂亮答案，我更想把问题解决掉。</p></div></div><div class="about-item"><span>03</span><div><h4>给下次的自己省点事</h4><p>把说明、日志和版本留好。过段时间再看，或者交给别人接手时，不用从头猜一遍。</p></div></div></div></section>
+  <section class="contact wrap"><div><p class="eyebrow">CONTINUE THE CONVERSATION</p><h2>有空，聊聊你在做什么。</h2><p>数据、报表，或者一个有意思的工具，都可以。</p></div><a href="https://github.com/xiaolv-home" target="_blank" rel="noopener noreferrer" aria-label="访问 xiaolv 的 GitHub 主页">GitHub <span>↗</span></a></section>
 </main>
-<footer class="site-footer page-width"><span class="footer-mark">PORTFOLIO / 2026</span><button id="motion-toggle" type="button" aria-pressed="false">动效：开启</button><a href="https://github.com/xiaolv-home/DB-Sonde" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">顶部 ↑</a></footer>
-<dialog id="image-dialog" aria-labelledby="dialog-caption"><div class="dialog-toolbar"><p id="dialog-caption"></p><button type="button" id="close-dialog" aria-label="关闭大图">关闭 ×</button></div><div class="dialog-image-wrap"><img id="dialog-image" alt=""></div></dialog>
-</body>
-</html>
+<footer class="footer wrap"><span>xiaolv <span class="muted">/</span> 2026</span><p>企业项目已匿名处理。交互示例使用虚构数据。</p><button id="motion-toggle" type="button" aria-pressed="false">暂停动效</button><a href="#top">回到顶部 ↑</a></footer>
+<dialog id="image-dialog" aria-labelledby="image-dialog-title"><div class="dialog-top"><span id="image-dialog-title">DB Sonde · 内置演示库</span><button id="image-close" aria-label="关闭截图">关闭 ×</button></div><img src="assets/sonde-workspace.png" alt="DB Sonde 演示工作区大图"></dialog>
+<div id="announcement" class="sr-only" aria-live="polite"></div>
+<script type="module" src="deck.js"></script>
+</body></html>
